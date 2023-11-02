@@ -2,6 +2,7 @@
 title: "Data Wrangling - Part I"
 subtitle: "StatPREP R Workshops"
 author: "Connor Rice"
+date: "11/02/2023"
 output: html_document
 ---
 
@@ -191,9 +192,13 @@ movies_2000 %>%
   arrange(rating, desc(budget))  # these are the lowest rated movies arranged by largest budget
 
 # Using the original 'movies' data, what is the longest movie? What is the oldest movie?
+movies %>%
+  arrange(desc(length))
+movies %>%
+  arrange(year)
 ```
 
-
+The longest movie in this data set is the 'Cure for Insomnia' with a run time of 5220 minutes. The oldest movie in this data set is 'Blacksmith Scene' filmed in 1893.
 
 ## Scavenger Hunt
 
@@ -202,8 +207,12 @@ See if you can answer these questions:
 1. How many movies were released in 1995?
 
 ```{r}
-
+movies_1995 <- movies %>%    
+  filter(year == 1995)
+movies_1995
 ```
+
+1248 Movies were released in 1995.
 
 2. Which Comedies with an MPAA rating, over 120 minutes have a rating above 8?
 
